@@ -60,3 +60,19 @@ Alta en cualquier otro caso.
 
 - `generar_alertas_humedad(self)`:
 Genera alertas en función de la humedad registrada cada día. Para ello utiliza el método clasificar_humedad y devuelve una lista con la fecha, el valor de humedad y su clasificación correspondiente.
+
+- `generar_reportes_olas(self)`:
+Esta funcion identifica y reporta períodos consecutivos de olas de calor, frío o temperatura ambiente con los registros de temperatura almacenados en self.registros y detecta secuencias de días consecutivos que cumplen ciertas condiciones y cuando una secuencia alcanza el número mínimo de días dias_minimos, se genera un reporte indicando las fechas de inicio y fin de la ola. 
+
+- `dias_minimos` es el número mínimo de días consecutivos que deben cumplirse para considerar una secuencia como ola.
+- `calor_umbral` es la temperatura mínima para considerar que un día pertenece a una ola de calor.
+- `frio_umbral` es la temperatura máxima para considerar que un día pertenece a una ola de frío.
+- `ambiente_rango` es el intervalo de temperaturas que se consideran como “temperatura ambiente agradable”.
+
+1. Inicializa contadores para olas de calor, frío y ambiente.
+2. Itera sobre cada registro de temperatura en `self.registros`.
+3. Según el valor de la temperatura del día:
+   - Aumenta el contador correspondiente (calor, frío o ambiente).
+   - Reinicia los otros contadores en caso de que la condición cambie.
+4. Cada vez que uno de los contadores alcanza `dias_minimos`, se añade un reporte con las fechas de inicio y fin de esa ola.
+5. Devuelve la lista completa de reportes generados.
