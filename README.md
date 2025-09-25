@@ -76,3 +76,7 @@ Esta funcion identifica y reporta períodos consecutivos de olas de calor, frío
    - Reinicia los otros contadores en caso de que la condición cambie.
 4. Cada vez que uno de los contadores alcanza `dias_minimos`, se añade un reporte con las fechas de inicio y fin de esa ola.
 5. Devuelve la lista completa de reportes generados.
+
+## Funcion `main(datos)`
+
+La función `main(datos)` es el punto de entrada del programa. Su objetivo es cargar un archivo de datos climáticos, procesarlos mediante la clase `Analizador` y mostrar por pantalla un resumen con estadísticas, alertas y reportes de olas de temperatura.
